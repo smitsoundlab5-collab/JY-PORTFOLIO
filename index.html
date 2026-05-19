@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sound Designer Portfolio — Crafting sonic worlds for film, games, and media." />
+  <meta property="og:title" content="SEO JEONGYEON — Sound Designer" />
+  <meta property="og:description" content="Portfolio of sound design work for film, games, and commercial media." />
+  <meta property="og:type" content="website" />
+  <title>SEO JEONGYEON — Sound Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── NAVIGATION ─────────────────────────────────── -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo">JY<span class="accent">.</span></a>
+      <nav aria-label="Primary navigation">
+        <ul class="nav__links">
+          <li><a href="#work"    class="nav__link">Work</a></li>
+          <li><a href="#about"   class="nav__link">About</a></li>
+          <li><a href="#contact" class="nav__link nav__link--cta">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav__burger" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── HERO ───────────────────────────────────────── -->
+    <section class="hero" id="hero">
+      <div class="hero__grain" aria-hidden="true"></div>
+      <div class="hero__content">
+        <p class="hero__eyebrow reveal">Sound Designer</p>
+        <h1 class="hero__name reveal">SEO JEONGYEON<span class="accent">.</span></h1>
+        <p class="hero__tagline reveal">
+          <span id="typing-text"></span><span class="cursor" aria-hidden="true">|</span>
+        </p>
+        <div class="hero__actions reveal">
+          <a href="#work" class="hero__cta">View Work
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <button class="hero__audio-toggle" id="audioToggle" aria-pressed="false">
+            <svg class="icon-sound-off" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2 5.5h2.5l3.5-3.5v12l-3.5-3.5H2v-5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+              <line x1="11.5" y1="5.5" x2="14" y2="8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              <line x1="14" y1="5.5" x2="11.5" y2="8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+            <svg class="icon-sound-on" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="display:none">
+              <path d="M2 5.5h2.5l3.5-3.5v12l-3.5-3.5H2v-5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+              <path d="M11 4.5a4 4 0 010 7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M13 2.5a7 7 0 010 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+            <span>Audio Off</span>
+          </button>
+        </div>
+      </div>
+      <div class="hero__scroll-hint" aria-hidden="true">
+        <span>scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ── SHOWREEL ──────────────────────────────────── -->
+    <section class="showreel section" id="showreel">
+      <div class="container">
+        <h2 class="section-label reveal">Showreel</h2>
+        <div class="showreel__wrap reveal">
+          <!--
+            실제 쇼릴 영상 삽입 시 아래 주석을 해제하고 YOUR_VIDEO_ID를 교체하세요:
+            <iframe
+              src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0"
+              title="SEO JEONGYEON — Sound Design Showreel 2024"
+              frameborder="0"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          -->
+          <div class="showreel__placeholder" aria-label="Showreel 준비 중">
+            <div class="showreel__waveform" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="showreel__play-btn" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <polygon points="7,4 16,10 7,16" fill="currentColor"/>
+              </svg>
+            </div>
+            <p class="showreel__title">2024 Showreel</p>
+            <p class="showreel__sub">Sound Design · Film · Game · Commercial</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WORK ─────────────────────────────────────── -->
+    <section class="work section" id="work">
+      <div class="container">
+        <h2 class="section-label reveal">Work</h2>
+
+        <!-- Category Filter -->
+        <div class="work__filters reveal" role="group" aria-label="프로젝트 카테고리 필터">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="post">Post-production</button>
+          <button class="filter-btn" data-filter="production">Production</button>
+          <button class="filter-btn" data-filter="cinematic">Cinematic</button>
+        </div>
+
+        <div class="work__grid">
+
+          <!-- Card 01 -->
+          <a href="projects/project-01.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="project-card-link reveal"
+             data-category="cinematic"
+             aria-label="Echo Chamber 프로젝트 상세 보기">
+            <article class="project-card">
+              <figure class="project-card__media">
+                <video class="project-card__video" muted loop playsinline preload="none">
+                  <!-- <source src="videos/echo-chamber.mp4" type="video/mp4"> -->
+                </video>
+                <div class="project-card__fallback" aria-hidden="true">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M10 20l8-8 4 4 8-8" stroke="#c8ff00" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="20" cy="20" r="18" stroke="#333" stroke-width="1"/>
+                  </svg>
+                </div>
+                <div class="project-card__overlay" aria-hidden="true">
+                  <span class="project-card__view-label">View Project
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="project-card__info">
+                <div class="project-card__meta">
+                  <span class="project-card__category">Film</span>
+                  <span class="project-card__year">2024</span>
+                </div>
+                <h3 class="project-card__title">Echo Chamber</h3>
+                <p class="project-card__role">Sound Design · Mixing</p>
+                <p class="project-card__desc">Psychological thriller short film. Designed an oppressive,
+                  interior soundscape using convolution reverbs and granular synthesis.</p>
+              </div>
+            </article>
+          </a>
+
+          <!-- Card 02 -->
+          <a href="projects/project-02.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="project-card-link reveal"
+             data-category="production"
+             aria-label="Neon Drift 프로젝트 상세 보기">
+            <article class="project-card">
+              <figure class="project-card__media">
+                <video class="project-card__video" muted loop playsinline preload="none">
+                  <!-- <source src="videos/neon-drift.mp4" type="video/mp4"> -->
+                </video>
+                <div class="project-card__fallback" aria-hidden="true">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M10 20l8-8 4 4 8-8" stroke="#c8ff00" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="20" cy="20" r="18" stroke="#333" stroke-width="1"/>
+                  </svg>
+                </div>
+                <div class="project-card__overlay" aria-hidden="true">
+                  <span class="project-card__view-label">View Project
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="project-card__info">
+                <div class="project-card__meta">
+                  <span class="project-card__category">Game</span>
+                  <span class="project-card__year">2024</span>
+                </div>
+                <h3 class="project-card__title">Neon Drift</h3>
+                <p class="project-card__role">Sound Design · Wwise Integration</p>
+                <p class="project-card__desc">Indie racing game. Built a reactive audio system where
+                  engine sounds, environment, and music blend dynamically with player speed.</p>
+              </div>
+            </article>
+          </a>
+
+          <!-- Card 03 -->
+          <a href="projects/project-01.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="project-card-link reveal"
+             data-category="post"
+             aria-label="Still Water 프로젝트 상세 보기">
+            <article class="project-card">
+              <figure class="project-card__media">
+                <video class="project-card__video" muted loop playsinline preload="none">
+                  <!-- <source src="videos/still-water.mp4" type="video/mp4"> -->
+                </video>
+                <div class="project-card__fallback" aria-hidden="true">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M10 20l8-8 4 4 8-8" stroke="#c8ff00" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="20" cy="20" r="18" stroke="#333" stroke-width="1"/>
+                  </svg>
+                </div>
+                <div class="project-card__overlay" aria-hidden="true">
+                  <span class="project-card__view-label">View Project
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="project-card__info">
+                <div class="project-card__meta">
+                  <span class="project-card__category">Commercial</span>
+                  <span class="project-card__year">2023</span>
+                </div>
+                <h3 class="project-card__title">Still Water</h3>
+                <p class="project-card__role">Sound Design · Dialogue Editing · Mixing</p>
+                <p class="project-card__desc">Luxury skincare brand campaign. Crafted a minimal,
+                  ASMR-adjacent sound palette — water, glass, and silence as primary instruments.</p>
+              </div>
+            </article>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ──────────────────────────────────────── -->
+    <section class="about section" id="about">
+      <div class="container">
+        <h2 class="section-label reveal">About</h2>
+        <div class="about__grid">
+          <div class="about__text">
+            <p class="about__body reveal">
+              I'm a sound designer based in Seoul, specializing in crafting immersive audio
+              experiences for film, games, and commercial media. With over 5 years of experience,
+              I blend field recordings, synthesis, and spatial audio to build worlds that audiences
+              feel as much as hear.
+            </p>
+            <p class="about__body reveal">
+              My work lives at the intersection of technical precision and emotional storytelling —
+              where a single sound can shift the entire mood of a scene.
+            </p>
+          </div>
+          <div class="about__image-wrap reveal">
+            <img src="Image/IMG_0635.JPG" alt="SEO JEONGYEON 프로필 사진"
+                 style="width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:2px;" />
+          </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="skills reveal">
+          <h3 class="skills__heading">Technical Skills</h3>
+          <div class="skills__grid">
+            <div class="skills__group">
+              <p class="skills__label">DAW</p>
+              <ul class="skills__list">
+                <li>Pro Tools</li>
+                <li>Reaper</li>
+                <li>Logic Pro</li>
+              </ul>
+            </div>
+            <div class="skills__group">
+              <p class="skills__label">Middleware</p>
+              <ul class="skills__list">
+                <li>Wwise</li>
+                <li>FMOD</li>
+              </ul>
+            </div>
+            <div class="skills__group">
+              <p class="skills__label">Plugins</p>
+              <ul class="skills__list">
+                <li>iZotope RX</li>
+                <li>Waves</li>
+                <li>FabFilter</li>
+              </ul>
+            </div>
+            <div class="skills__group">
+              <p class="skills__label">Specialization</p>
+              <ul class="skills__list">
+                <li>Spatial Audio</li>
+                <li>Ambisonics</li>
+                <li>Foley Recording</li>
+                <li>Dialogue Editing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education & Experience -->
+        <div class="career reveal">
+          <h3 class="career__heading">Education &amp; Experience</h3>
+          <ul class="career__list">
+            <li class="career__item">
+              <span class="career__year">2024</span>
+              <div class="career__body">
+                <p class="career__title">Sound Designer</p>
+                <p class="career__org">Freelance · Seoul</p>
+              </div>
+            </li>
+            <li class="career__item">
+              <span class="career__year">20XX</span>
+              <div class="career__body">
+                <p class="career__title">B.A. Sound Production</p>
+                <p class="career__org">학교명 · 전공</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CONTACT ────────────────────────────────────── -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="contact__inner">
+          <h2 class="contact__heading reveal">Let's make<br>something <span class="accent">sound</span> great.</h2>
+          <div class="contact__links reveal">
+            <a href="mailto:0105590147z@gmail.com" class="contact__link">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M2 7l8 5 8-5" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              0105590147z@gmail.com
+            </a>
+            <a href="https://soundcloud.com/" target="_blank" rel="noopener noreferrer" class="contact__link">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M3 13.5a2.5 2.5 0 005 0V9a2.5 2.5 0 00-5 0v4.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M8 13.5V8M11 13.5V7M14 13.5V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M14 9a3 3 0 00-3-3 5 5 0 00-9 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              SoundCloud
+            </a>
+            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="contact__link">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <rect x="2" y="2" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="6" cy="7.5" r="1" fill="currentColor"/>
+                <line x1="6" y1="10" x2="6" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="9.5" y1="10" x2="9.5" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M9.5 12.5c0-1.7 1-2.5 2.5-2.5s2.5.8 2.5 2.5V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="contact__link">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <rect x="2" y="2" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="14.5" cy="5.5" r="0.75" fill="currentColor"/>
+              </svg>
+              Instagram
+            </a>
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="contact__link">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M10 1.5a8.5 8.5 0 00-2.687 16.565c.425.078.58-.184.58-.41v-1.44c-2.364.514-2.862-1.14-2.862-1.14-.387-.982-.944-1.244-.944-1.244-.772-.527.058-.517.058-.517.853.06 1.302.876 1.302.876.758 1.298 1.99.923 2.474.706.077-.55.297-.923.54-1.135-1.888-.215-3.872-.944-3.872-4.205 0-.929.332-1.688.876-2.284-.088-.215-.38-1.08.083-2.25 0 0 .714-.228 2.34.872A8.14 8.14 0 0110 6.808c.724.003 1.452.098 2.133.287 1.624-1.1 2.337-.872 2.337-.872.464 1.17.172 2.035.084 2.25.546.596.875 1.355.875 2.284 0 3.27-1.988 3.988-3.882 4.198.305.263.577.782.577 1.575v2.335c0 .228.154.492.585.409A8.5 8.5 0 0010 1.5z"/>
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> SEO JEONGYEON. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

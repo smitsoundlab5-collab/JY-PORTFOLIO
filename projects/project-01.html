@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Echo Chamber — Sound Design for Psychological Thriller Short Film." />
+  <title>Echo Chamber — Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <!-- ── TOP BAR ─────────────────────── -->
+  <header class="pd-topbar">
+    <div class="pd-topbar__inner">
+      <a href="../index.html" class="pd-back-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M13 8H3M7 4l-4 4 4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Main
+      </a>
+      <span class="pd-topbar__label">Echo Chamber</span>
+      <button class="pd-close-btn" onclick="window.close()" aria-label="탭 닫기">
+        Close ✕
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── HERO ───────────────────────── -->
+    <section class="pd-hero">
+      <div class="pd-hero__media">
+        <!-- 실제 영상 파일이 있을 경우 아래 video 태그를 사용하세요 -->
+        <!-- <video class="pd-hero__video" autoplay muted loop playsinline src="../videos/echo-chamber-hero.mp4"></video> -->
+        <div class="pd-hero__media-placeholder">
+          <div class="pd-hero__waveform" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pd-hero__info">
+        <div class="pd-hero__inner">
+          <div>
+            <p class="pd-hero__category">Film / Short</p>
+            <h1 class="pd-hero__title">Echo Chamber</h1>
+            <div class="pd-hero__meta">
+              <div class="pd-hero__meta-item">
+                <span class="pd-hero__meta-label">Duration</span>
+                <span class="pd-hero__meta-value">18 min</span>
+              </div>
+              <div class="pd-hero__meta-item">
+                <span class="pd-hero__meta-label">Year</span>
+                <span class="pd-hero__meta-value">2024</span>
+              </div>
+              <div class="pd-hero__meta-item">
+                <span class="pd-hero__meta-label">Role</span>
+                <span class="pd-hero__meta-value">Sound Design & Mix</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="pd-hero__meta-label" style="margin-bottom:0.6rem;">Tools</p>
+            <div class="pd-hero__tools">
+              <span class="pd-tool-tag">Pro Tools</span>
+              <span class="pd-tool-tag">iZotope RX 10</span>
+              <span class="pd-tool-tag">Spire Studio</span>
+              <span class="pd-tool-tag">Kontakt</span>
+              <span class="pd-tool-tag">Iris 2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── BEFORE / AFTER PLAYER ──────── -->
+    <section class="pd-section">
+      <div class="pd-section__container">
+        <p class="pd-section__label">Before / After</p>
+
+        <!-- Player -->
+        <div class="ba-player" id="ba-player-01" role="region" aria-label="Before/After 사운드 비교 플레이어">
+
+          <!-- Toggle buttons -->
+          <div class="ba-player__toggle-row">
+            <button class="ba-toggle active" data-mode="before" aria-pressed="true">
+              <span class="ba-toggle__dot"></span>
+              Before
+              <span class="ba-toggle__sub">Guide / No SFX</span>
+            </button>
+            <button class="ba-toggle" data-mode="after" aria-pressed="false">
+              <span class="ba-toggle__dot"></span>
+              After
+              <span class="ba-toggle__sub">Final Mix</span>
+            </button>
+          </div>
+
+          <!-- Screen -->
+          <div class="ba-player__screen">
+            <!--
+              실제 파일 적용 방법:
+              1. data-before-src에 가이드/원본 영상 경로를 입력하세요
+              2. data-after-src에 최종 사운드 믹스 영상 경로를 입력하세요
+              예: data-before-src="../videos/echo-chamber-before.mp4"
+                  data-after-src="../videos/echo-chamber-after.mp4"
+            -->
+            <video
+              class="ba-player__video"
+              id="ba-video-01"
+              playsinline
+              data-before-src=""
+              data-after-src=""
+            ></video>
+
+            <!-- No-source placeholder -->
+            <div class="ba-player__placeholder" id="ba-placeholder-01">
+              <div class="ba-player__placeholder-waveform" aria-hidden="true">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+              </div>
+              <p>Add video source to enable playback</p>
+            </div>
+
+            <!-- Mode badge -->
+            <div class="ba-player__badge" data-mode="before" id="ba-badge-01"
+                 aria-live="polite" aria-atomic="true">BEFORE</div>
+          </div>
+
+          <!-- Controls -->
+          <div class="ba-player__controls">
+            <div class="ba-player__progress-row">
+              <button class="ba-play-btn" id="ba-play-01" aria-label="재생">
+                <!-- Play icon -->
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+                  <path d="M3 2l9 5-9 5V2z"/>
+                </svg>
+              </button>
+
+              <div class="ba-progress-track" id="ba-track-01" role="slider"
+                   aria-label="재생 위치" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="ba-progress-fill" id="ba-fill-01"></div>
+                <div class="ba-progress-thumb" id="ba-thumb-01"></div>
+              </div>
+
+              <span class="ba-time" id="ba-time-01">0:00 / 0:00</span>
+            </div>
+
+            <div class="ba-player__volume-row">
+              <button class="ba-mute-btn" id="ba-mute-01" aria-label="음소거">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d="M2 6.5h3l4-3.5v12L5 11.5H2v-5z" stroke="currentColor" stroke-width="1.2"
+                        stroke-linejoin="round"/>
+                  <path id="ba-vol-wave-01" d="M13 5.5a4.5 4.5 0 010 7M11 7.5a2 2 0 010 3"
+                        stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+              </button>
+              <input class="ba-volume-slider" id="ba-vol-01"
+                     type="range" min="0" max="1" step="0.02" value="1"
+                     aria-label="볼륨" />
+              <span class="ba-player__hint">Space: play/pause &nbsp;·&nbsp; B/A: toggle mode</span>
+            </div>
+          </div>
+
+        </div><!-- /ba-player -->
+
+        <!-- Description below player -->
+        <div class="pd-description" style="margin-top:2.5rem;">
+          <p>
+            The original guide track was delivered completely silent — just the picture cut and rough dialogue.
+            The challenge was to build an oppressive interior world from scratch: the hum of fluorescent
+            lights, distant footsteps distorted through thin walls, and a growing sub-frequency
+            pressure that signals the protagonist's psychological unraveling.
+          </p>
+          <p>
+            Toggle <em>Before</em> and <em>After</em> above to hear how the same scene transforms
+            from a silent edit to a fully designed soundscape.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WORKFLOW ────────────────────── -->
+    <section class="pd-section">
+      <div class="pd-section__container">
+        <p class="pd-section__label">Workflow</p>
+
+        <div class="pd-workflow__grid">
+          <!-- Image 01: DAW session -->
+          <div class="pd-workflow__img">
+            <!-- <img src="../images/echo-daw.jpg" alt="Pro Tools session screenshot"> -->
+            <div class="pd-workflow__img-placeholder">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <rect x="2" y="8" width="28" height="18" rx="1" stroke="#333" stroke-width="1.2"/>
+                <path d="M6 18l4-4 3 3 4-6 4 4 3-2" stroke="#c8ff00" stroke-width="1.2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>DAW Session</span>
+            </div>
+          </div>
+
+          <!-- Image 02: Foley recording -->
+          <div class="pd-workflow__img">
+            <!-- <img src="../images/echo-foley.jpg" alt="Foley recording setup"> -->
+            <div class="pd-workflow__img-placeholder">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <circle cx="16" cy="11" r="5" stroke="#333" stroke-width="1.2"/>
+                <path d="M10 11v2a6 6 0 0012 0v-2M16 23v4M12 27h8" stroke="#333"
+                      stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+              <span>Foley Recording</span>
+            </div>
+          </div>
+
+          <!-- Image 03: Mix bus -->
+          <div class="pd-workflow__img">
+            <!-- <img src="../images/echo-mix.jpg" alt="Final mix bus view"> -->
+            <div class="pd-workflow__img-placeholder">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <rect x="4" y="4" width="3" height="20" rx="1" stroke="#333" stroke-width="1.2"/>
+                <rect x="10" y="9" width="3" height="15" rx="1" stroke="#333" stroke-width="1.2"/>
+                <rect x="16" y="6" width="3" height="18" rx="1" stroke="#c8ff00" stroke-width="1.2"/>
+                <rect x="22" y="11" width="3" height="13" rx="1" stroke="#333" stroke-width="1.2"/>
+                <path d="M4 28h24" stroke="#333" stroke-width="1"/>
+              </svg>
+              <span>Final Mix</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pd-workflow__caption">
+          <h3>Approach & Intent</h3>
+          <p>
+            The brief called for "claustrophobia without jump scares" — so all sounds were treated
+            to feel like they came from inside the protagonist's head. Convolution reverbs sampled
+            in real hospital corridors, granular-stretched breathing textures, and a slowly
+            de-tuning room tone were the core palette. Everything was mixed in 5.1 surround then
+            folded to stereo for delivery.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── BOTTOM NAVIGATION ──────────────── -->
+  <nav class="pd-bottom-nav" aria-label="프로젝트 내비게이션">
+    <div class="pd-bottom-nav__inner">
+      <a href="../index.html" class="pd-btn pd-btn--outline">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M11 7H3M6 3L2 7l4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back to Portfolio
+      </a>
+      <a href="project-02.html" target="_blank" rel="noopener noreferrer"
+         class="pd-btn pd-btn--accent">
+        Next Project — Neon Drift
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M3 7h8M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <footer class="pd-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Your Name.</p>
+    </div>
+  </footer>
+
+  <!-- ── PROJECT PLAYER SCRIPT ──────────── -->
+  <script>
+  'use strict';
+
+  /* ── Year ── */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ════════════════════════════════════════════
+     BeforeAfterPlayer — custom video player class
+     with source-swap & sync.
+  ════════════════════════════════════════════ */
+  class BeforeAfterPlayer {
+    constructor(playerId) {
+      this.root = document.getElementById(playerId);
+      if (!this.root) return;
+
+      const id = playerId.replace('ba-player-', '');
+
+      this.video       = document.getElementById('ba-video-'       + id);
+      this.placeholder = document.getElementById('ba-placeholder-' + id);
+      this.badge       = document.getElementById('ba-badge-'       + id);
+      this.playBtn     = document.getElementById('ba-play-'        + id);
+      this.track       = document.getElementById('ba-track-'       + id);
+      this.fill        = document.getElementById('ba-fill-'        + id);
+      this.thumb       = document.getElementById('ba-thumb-'       + id);
+      this.timeEl      = document.getElementById('ba-time-'        + id);
+      this.muteBtn     = document.getElementById('ba-mute-'        + id);
+      this.volSlider   = document.getElementById('ba-vol-'         + id);
+      this.volWave     = document.getElementById('ba-vol-wave-'    + id);
+      this.toggleBtns  = this.root.querySelectorAll('.ba-toggle');
+
+      this.mode       = 'before';
+      this.dragging   = false;
+
+      this.beforeSrc = this.video.dataset.beforeSrc || '';
+      this.afterSrc  = this.video.dataset.afterSrc  || '';
+
+      this._init();
+    }
+
+    /* ─ Icons ─ */
+    get _playIcon() {
+      return '<svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M3 2l9 5-9 5V2z"/></svg>';
+    }
+    get _pauseIcon() {
+      return '<svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><rect x="2" y="2" width="4" height="10" rx="1"/><rect x="8" y="2" width="4" height="10" rx="1"/></svg>';
+    }
+
+    /* ─ Init ─ */
+    _init() {
+      /* Load initial source */
+      this._loadSource(this.beforeSrc);
+
+      /* Toggle buttons */
+      this.toggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => this.switchMode(btn.dataset.mode));
+      });
+
+      /* Play/Pause */
+      this.playBtn.addEventListener('click', () => this.togglePlay());
+
+      /* Video events */
+      this.video.addEventListener('timeupdate',    () => this._onTimeUpdate());
+      this.video.addEventListener('loadedmetadata',() => this._onMetaLoaded());
+      this.video.addEventListener('ended',         () => this._onEnded());
+      this.video.addEventListener('play',          () => {
+        this.playBtn.innerHTML = this._pauseIcon;
+        this.playBtn.setAttribute('aria-label', '일시정지');
+      });
+      this.video.addEventListener('pause', () => {
+        this.playBtn.innerHTML = this._playIcon;
+        this.playBtn.setAttribute('aria-label', '재생');
+      });
+
+      /* Progress drag */
+      this.track.addEventListener('mousedown',  e => this._onProgressDown(e));
+      this.track.addEventListener('touchstart', e => this._onProgressDown(e), { passive: true });
+      document.addEventListener('mousemove',  e => this._onProgressMove(e));
+      document.addEventListener('touchmove',  e => this._onProgressMove(e), { passive: true });
+      document.addEventListener('mouseup',    ()  => this._onProgressUp());
+      document.addEventListener('touchend',   ()  => this._onProgressUp());
+
+      /* Volume */
+      this.volSlider.addEventListener('input', () => {
+        this.video.volume = parseFloat(this.volSlider.value);
+        this._updateMuteIcon();
+      });
+
+      this.muteBtn.addEventListener('click', () => this._toggleMute());
+
+      /* Keyboard shortcuts (focused within player) */
+      this.root.setAttribute('tabindex', '0');
+      this.root.addEventListener('keydown', e => this._onKey(e));
+    }
+
+    /* ─ Source loading ─ */
+    _loadSource(src) {
+      const hasSrc = !!src;
+      this.placeholder.classList.toggle('hidden', hasSrc);
+
+      if (hasSrc) {
+        this.video.src = src;
+        this.video.load();
+      } else {
+        this.video.removeAttribute('src');
+        this._setTimeDisplay(0, 0);
+        this._setProgress(0);
+      }
+    }
+
+    /* ─ Switch Before/After ─ */
+    switchMode(newMode) {
+      if (newMode === this.mode) return;
+
+      const savedTime  = this.video.currentTime || 0;
+      const wasPlaying = !this.video.paused && this.video.src;
+      const newSrc     = newMode === 'before' ? this.beforeSrc : this.afterSrc;
+
+      this.mode = newMode;
+
+      /* Update badge */
+      this.badge.textContent       = newMode.toUpperCase();
+      this.badge.dataset.mode      = newMode;
+
+      /* Update toggle buttons */
+      this.toggleBtns.forEach(btn => {
+        const active = btn.dataset.mode === newMode;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-pressed', String(active));
+      });
+
+      /* If no source, just update badge */
+      if (!newSrc) {
+        this._loadSource('');
+        return;
+      }
+
+      /* Swap source, restore position */
+      this.video.src = newSrc;
+      this.video.load();
+
+      const resume = () => {
+        this.video.currentTime = Math.min(savedTime, this.video.duration || 0);
+        if (wasPlaying) this.video.play().catch(() => {});
+        this.video.removeEventListener('canplay', resume);
+      };
+      this.video.addEventListener('canplay', resume);
+    }
+
+    /* ─ Play / Pause ─ */
+    togglePlay() {
+      if (!this.video.src) return; /* No source — do nothing */
+
+      if (this.video.paused) {
+        this.video.play().catch(() => {});
+      } else {
+        this.video.pause();
+      }
+    }
+
+    /* ─ Progress ─ */
+    _calcPercent(e) {
+      const rect = this.track.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      return Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+    }
+
+    _onProgressDown(e) {
+      if (!this.video.src) return;
+      this.dragging = true;
+      const pct = this._calcPercent(e);
+      this._setProgress(pct * 100);
+    }
+
+    _onProgressMove(e) {
+      if (!this.dragging) return;
+      const pct = this._calcPercent(e);
+      this._setProgress(pct * 100);
+    }
+
+    _onProgressUp() {
+      if (!this.dragging) return;
+      this.dragging = false;
+      if (this.video.duration) {
+        const pct = parseFloat(this.fill.style.width) / 100;
+        this.video.currentTime = pct * this.video.duration;
+      }
+    }
+
+    _setProgress(pct) {
+      this.fill.style.width  = pct + '%';
+      this.thumb.style.left  = pct + '%';
+      this.track.setAttribute('aria-valuenow', Math.round(pct));
+    }
+
+    _onTimeUpdate() {
+      if (this.dragging) return;
+      const dur = this.video.duration || 0;
+      const cur = this.video.currentTime;
+      const pct = dur ? (cur / dur) * 100 : 0;
+      this._setProgress(pct);
+      this._setTimeDisplay(cur, dur);
+    }
+
+    _onMetaLoaded() {
+      this._setTimeDisplay(0, this.video.duration);
+    }
+
+    _onEnded() {
+      this._setProgress(0);
+      this.video.currentTime = 0;
+    }
+
+    _setTimeDisplay(cur, dur) {
+      this.timeEl.textContent = this._fmt(cur) + ' / ' + this._fmt(dur);
+    }
+
+    _fmt(s) {
+      if (!s || isNaN(s)) return '0:00';
+      const m = Math.floor(s / 60);
+      const sec = Math.floor(s % 60);
+      return m + ':' + String(sec).padStart(2, '0');
+    }
+
+    /* ─ Volume ─ */
+    _toggleMute() {
+      this.video.muted = !this.video.muted;
+      if (this.video.muted) {
+        this.volSlider.value = 0;
+      } else {
+        this.video.volume = parseFloat(this.volSlider.value) || 1;
+        if (this.volSlider.value === '0') this.volSlider.value = 1;
+      }
+      this._updateMuteIcon();
+    }
+
+    _updateMuteIcon() {
+      const muted = this.video.muted || parseFloat(this.volSlider.value) === 0;
+      if (this.volWave) {
+        this.volWave.style.opacity = muted ? '0.2' : '1';
+      }
+      this.muteBtn.setAttribute('aria-label', muted ? '음소거 해제' : '음소거');
+    }
+
+    /* ─ Keyboard ─ */
+    _onKey(e) {
+      switch (e.key) {
+        case ' ':
+        case 'k':
+          e.preventDefault();
+          this.togglePlay();
+          break;
+        case 'b':
+        case 'B':
+          this.switchMode('before');
+          break;
+        case 'a':
+        case 'A':
+          this.switchMode('after');
+          break;
+        case 'ArrowRight':
+          if (this.video.src) this.video.currentTime = Math.min(this.video.duration, this.video.currentTime + 5);
+          break;
+        case 'ArrowLeft':
+          if (this.video.src) this.video.currentTime = Math.max(0, this.video.currentTime - 5);
+          break;
+        case 'ArrowUp':
+          e.preventDefault();
+          this.video.volume = Math.min(1, this.video.volume + 0.1);
+          this.volSlider.value = this.video.volume;
+          break;
+        case 'ArrowDown':
+          e.preventDefault();
+          this.video.volume = Math.max(0, this.video.volume - 0.1);
+          this.volSlider.value = this.video.volume;
+          break;
+        case 'm':
+        case 'M':
+          this._toggleMute();
+          break;
+      }
+    }
+  }
+
+  /* ── Mount player ── */
+  new BeforeAfterPlayer('ba-player-01');
+
+  /* ── Reveal animation ── */
+  (function initReveal() {
+    const items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    items.forEach(el => obs.observe(el));
+  })();
+  </script>
+
+</body>
+</html>
