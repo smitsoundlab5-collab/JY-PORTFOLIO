@@ -151,6 +151,7 @@
     link.addEventListener('mouseleave', function () {
       video.pause();
       video.currentTime = 0;
+      if (video.hasAttribute('poster')) video.load();
     });
   });
 })();
