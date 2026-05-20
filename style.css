@@ -391,6 +391,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   font-weight: 300; line-height: 1.8;
   word-break: keep-all;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .about__tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
