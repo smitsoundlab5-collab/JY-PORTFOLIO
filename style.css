@@ -405,6 +405,18 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 
 .about__image-wrap { position: sticky; top: calc(var(--nav-h) + 2rem); }
 
+.about__photo {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  aspect-ratio: 3/4;
+  max-height: 360px;
+}
+
+@media (max-width: 1024px) {
+  .about__photo { max-height: none; }
+}
+
 /* ── Skills ────────────────────────────── */
 .skills {
   margin-top: clamp(3rem, 6vw, 5rem);
@@ -437,8 +449,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 
 /* ── Career ────────────────────────────── */
 .career {
-  margin-top: clamp(2.5rem, 5vw, 4rem);
-  padding-top: clamp(2rem, 4vw, 3rem);
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
   border-top: 1px solid var(--border);
 }
 
