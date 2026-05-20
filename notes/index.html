@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SEO JEONGYEON — 사운드 디자인 작업 일지" />
+  <title>Notes — SEO JEONGYEON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <!-- ── TOP BAR ────────────────────────────────────── -->
+  <header class="pd-topbar">
+    <div class="pd-topbar__inner">
+      <a href="../index.html" class="pd-back-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back to Home
+      </a>
+      <span class="pd-topbar__label">Notes</span>
+      <span aria-hidden="true"></span>
+    </div>
+  </header>
+
+  <main style="padding-top: var(--nav-h)">
+
+    <!-- ── HERO ─────────────────────────────────────── -->
+    <section class="cr-hero">
+      <div class="container">
+        <p class="cr-hero__eyebrow">SEO JEONGYEON</p>
+        <h1 class="cr-hero__title">Notes<span class="accent">.</span></h1>
+        <p class="cr-hero__sub">사운드 디자인 작업 과정과 기록들</p>
+      </div>
+    </section>
+
+    <!-- ── NOTE LIST ─────────────────────────────────── -->
+    <section class="cr-section">
+      <div class="container">
+        <div class="note-list">
+
+          <a href="note-01.html" class="note-card">
+            <div class="note-card__meta">
+              <span class="note-card__category">Foley</span>
+              <span class="note-card__date">2024.03.15</span>
+            </div>
+            <h2 class="note-card__title">폴리 녹음 세션 — 도시 질감 수집기</h2>
+            <p class="note-card__summary">서울 도심 곳곳을 돌아다니며 수집한 도시 폴리 사운드 작업기. 콘크리트, 금속, 유리가 만들어내는 레이어들을 어떻게 활용했는가.</p>
+          </a>
+
+          <a href="note-01.html" class="note-card">
+            <div class="note-card__meta">
+              <span class="note-card__category">Mixing</span>
+              <span class="note-card__date">2024.02.28</span>
+            </div>
+            <h2 class="note-card__title">레이어드 믹싱 — 공간감을 설계하는 방법</h2>
+            <p class="note-card__summary">좁은 공간과 넓은 공간의 잔향을 동시에 쌓아 깊이감을 만드는 방법론. 리버브 체인의 구조와 EQ 처리 순서에 대한 개인적인 워크플로우.</p>
+          </a>
+
+          <a href="note-01.html" class="note-card">
+            <div class="note-card__meta">
+              <span class="note-card__category">Sound Design</span>
+              <span class="note-card__date">2024.01.10</span>
+            </div>
+            <h2 class="note-card__title">사운드 레이어링과 감정 설계</h2>
+            <p class="note-card__summary">관객이 인식하지 못하는 수준에서 감정을 유도하는 저주파 레이어 활용법. 심리 스릴러 단편 작업 중 발견한 주파수와 긴장감의 상관관계.</p>
+          </a>
+
+          <a href="note-01.html" class="note-card">
+            <div class="note-card__meta">
+              <span class="note-card__category">Post-production</span>
+              <span class="note-card__date">2023.12.01</span>
+            </div>
+            <h2 class="note-card__title">다이얼로그 에디팅 — 노이즈와 공존하기</h2>
+            <p class="note-card__summary">iZotope RX를 활용한 현장 녹음 복원 과정. 완전한 제거보다 자연스러운 보정을 선택하는 기준과, 그 선택이 최종 사운드에 미치는 영향.</p>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────── -->
+  <footer class="pd-footer">
+    <div class="container">
+      <p>© <span id="year"></span> SEO JEONGYEON. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

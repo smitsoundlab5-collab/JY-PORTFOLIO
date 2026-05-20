@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="폴리 녹음 세션 — 도시 질감 수집기 | SEO JEONGYEON Notes" />
+  <title>폴리 녹음 세션 — SEO JEONGYEON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <!-- ── TOP BAR ────────────────────────────────────── -->
+  <header class="pd-topbar">
+    <div class="pd-topbar__inner">
+      <a href="index.html" class="pd-back-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Notes
+      </a>
+      <span class="pd-topbar__label">Note</span>
+      <span aria-hidden="true"></span>
+    </div>
+  </header>
+
+  <main style="padding-top: var(--nav-h)">
+
+    <!-- ── ARTICLE HEADER ────────────────────────────── -->
+    <article class="note-article">
+      <header class="note-article__header">
+        <div class="container">
+          <p class="note-article__category">Foley</p>
+          <h1 class="note-article__title">폴리 녹음 세션<br>도시 질감 수집기</h1>
+          <p class="note-article__date">2024.03.15</p>
+        </div>
+      </header>
+
+      <!-- ── ARTICLE BODY ─────────────────────────────── -->
+      <div class="note-article__body">
+        <div class="container note-article__container">
+
+          <p>
+            도시는 거대한 악기다. 콘크리트 벽이 만드는 특유의 저역 반사음, 지하철 환풍구에서 뿜어져 나오는 바람 소리, 오래된 금속 난간을 손가락 끝으로 두드렸을 때의 그 짧고 차가운 어택감. 이번 세션은 서울 종로 일대를 중심으로, '인위적이지 않은 도시의 소리'를 채집하는 데 목적을 두었다.
+          </p>
+
+          <h2>장비 세팅</h2>
+
+          <p>
+            녹음에는 Sound Devices MixPre-3 II에 Sennheiser MKH 50을 메인으로, 스테레오 앰비언스 채집용으로 DPA 4060 바이노럴 셋업을 병행했다. 도심 환경에서는 바람 처리가 핵심이라 Rycote Nano Shield를 최대한 활용했고, 고층 빌딩 사이 골목에서는 예상 못한 저주파 공명이 잡혀 추가 세션을 진행했다.
+          </p>
+
+          <!-- ── AUDIO PLAYER ─────────────────────────── -->
+          <div class="note-audio">
+            <p class="note-audio__label">Sample — Raw Recording / 종로 골목 앰비언스</p>
+            <audio controls>
+              <!-- 실제 파일로 교체: <source src="../audio/foley-jongno-raw.mp3" type="audio/mpeg"> -->
+              <p>브라우저가 오디오 재생을 지원하지 않습니다.</p>
+            </audio>
+          </div>
+
+          <p>
+            위 레코딩은 처리 전 원본 상태다. 배경에 깔린 저역 험(Hum)이 HVAC 시스템에서 기인한다는 것을 현장에서 바로 파악했고, 이후 iZotope RX의 Spectral Repair로 해당 주파수 대역을 최소한으로 터치했다. 제거가 아니라 '자연스럽게 후퇴'시키는 것이 목적이었다.
+          </p>
+
+          <h2>DAW 세션 구조</h2>
+
+          <!-- ── IMAGE PLACEHOLDER ─────────────────────── -->
+          <figure class="note-figure">
+            <div class="note-figure__placeholder" aria-label="DAW 세션 캡처 이미지 자리">
+              <span>DAW Session Screenshot</span>
+            </div>
+            <figcaption>Reaper 세션 — 폴리 레이어 타임라인. 상단부터 앰비언스 / 질감 / 포인트 SFX 순으로 배치.</figcaption>
+          </figure>
+
+          <p>
+            세션은 크게 세 레이어로 나뉜다. 첫 번째는 공간의 '숨'에 해당하는 앰비언스 베드. 두 번째는 질감을 더하는 미드 레이어로, 이번 작업에서는 콘크리트 마찰음과 금속 공명이 주를 이뤘다. 세 번째는 특정 액션에 반응하는 포인트 SFX 트랙들이다.
+          </p>
+
+          <p>
+            흥미로운 발견은 종로 3가 노점상 골목에서 수집한 비닐 마찰음이었다. 기대하지 않았지만 특정 EQ 처리를 거쳤을 때 유기적인 질감으로 돌변했고, 이후 Echo Chamber 프로젝트의 의상 폴리 트랙에 실제로 활용됐다.
+          </p>
+
+          <h2>처리 전후 비교</h2>
+
+          <!-- ── BEFORE / AFTER AUDIO ──────────────────── -->
+          <div class="note-audio">
+            <p class="note-audio__label">Before — 처리 전 원본</p>
+            <audio controls>
+              <!-- <source src="../audio/foley-before.mp3" type="audio/mpeg"> -->
+              <p>브라우저가 오디오 재생을 지원하지 않습니다.</p>
+            </audio>
+          </div>
+
+          <div class="note-audio">
+            <p class="note-audio__label">After — 최종 처리본</p>
+            <audio controls>
+              <!-- <source src="../audio/foley-after.mp3" type="audio/mpeg"> -->
+              <p>브라우저가 오디오 재생을 지원하지 않습니다.</p>
+            </audio>
+          </div>
+
+          <!-- ── IMAGE PLACEHOLDER ─────────────────────── -->
+          <figure class="note-figure">
+            <div class="note-figure__placeholder" aria-label="스펙트럼 분석 이미지 자리">
+              <span>Spectral Analysis Screenshot</span>
+            </div>
+            <figcaption>iZotope RX — Spectral Repair 처리 전후 비교. 60Hz 험 대역을 최소 터치로 보정한 결과.</figcaption>
+          </figure>
+
+          <p>
+            결국 폴리 작업에서 가장 중요한 건 '얼마나 많이 채집했는가'가 아니라 '어떤 순간에 무엇을 들었는가'다. 이 세션에서 수집한 460여 개의 클립 중 실제로 작업에 활용된 것은 30개 남짓. 하지만 그 30개가 없었다면 Echo Chamber의 복도 장면은 전혀 다른 감정으로 완성됐을 것이다.
+          </p>
+
+        </div>
+      </div>
+    </article>
+
+    <!-- ── BACK BUTTON ────────────────────────────────── -->
+    <div class="note-back">
+      <div class="container">
+        <a href="index.html" class="pd-back-btn">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          목록으로 돌아가기
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────── -->
+  <footer class="pd-footer">
+    <div class="container">
+      <p>© <span id="year"></span> SEO JEONGYEON. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
