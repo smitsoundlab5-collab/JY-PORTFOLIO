@@ -32,10 +32,8 @@
     <!-- ── HERO ───────────────────────── -->
     <section class="pd-hero">
       <div class="pd-hero__media">
-        <video class="pd-hero__video" controls playsinline
-               src="../videos/lipbalm.mp4"
-               poster="../videos/lipbalm_thumb.jpg"
-               style="cursor:pointer;"></video>
+        <img src="../videos/lipbalm_thumb.jpg" alt="Lipbalm"
+             style="width:100%; height:100%; object-fit:cover; display:block;">
       </div>
 
       <div class="pd-hero__info">
@@ -72,6 +70,94 @@
           <p>
             도시의 밑바닥에서 살아가는 청춘들이 선택과 폭력, 생존 사이에서 무너져가는 모습을 통해
             관계의 의미와 인간의 본성을 보여주는 작품입니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── BEFORE / AFTER PLAYER ──────── -->
+    <section class="pd-section">
+      <div class="pd-section__container">
+        <p class="pd-section__label">Before / After</p>
+
+        <div class="ba-player" id="ba-player-01" role="region" aria-label="Before/After 사운드 비교 플레이어">
+
+          <div class="ba-player__toggle-row">
+            <button class="ba-toggle active" data-mode="before" aria-pressed="true">
+              <span class="ba-toggle__dot"></span>
+              Before
+              <span class="ba-toggle__sub">원본 / No Mix</span>
+            </button>
+            <button class="ba-toggle" data-mode="after" aria-pressed="false">
+              <span class="ba-toggle__dot"></span>
+              After
+              <span class="ba-toggle__sub">Final Mix</span>
+            </button>
+          </div>
+
+          <div class="ba-player__screen">
+            <!--
+              영상 파일 적용:
+              data-before-src="../videos/lipbalm-before.mp4"
+              data-after-src="../videos/lipbalm-after.mp4"
+            -->
+            <video
+              class="ba-player__video"
+              id="ba-video-01"
+              playsinline
+              data-before-src=""
+              data-after-src=""
+            ></video>
+
+            <div class="ba-player__placeholder" id="ba-placeholder-01">
+              <div class="ba-player__placeholder-waveform" aria-hidden="true">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+              </div>
+              <p>Add video source to enable playback</p>
+            </div>
+
+            <div class="ba-player__badge" data-mode="before" id="ba-badge-01"
+                 aria-live="polite" aria-atomic="true">BEFORE</div>
+          </div>
+
+          <div class="ba-player__controls">
+            <div class="ba-player__progress-row">
+              <button class="ba-play-btn" id="ba-play-01" aria-label="재생">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+                  <path d="M3 2l9 5-9 5V2z"/>
+                </svg>
+              </button>
+              <div class="ba-progress-track" id="ba-track-01" role="slider"
+                   aria-label="재생 위치" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="ba-progress-fill" id="ba-fill-01"></div>
+                <div class="ba-progress-thumb" id="ba-thumb-01"></div>
+              </div>
+              <span class="ba-time" id="ba-time-01">0:00 / 0:00</span>
+            </div>
+            <div class="ba-player__volume-row">
+              <button class="ba-mute-btn" id="ba-mute-01" aria-label="음소거">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d="M2 6.5h3l4-3.5v12L5 11.5H2v-5z" stroke="currentColor" stroke-width="1.2"
+                        stroke-linejoin="round"/>
+                  <path id="ba-vol-wave-01" d="M13 5.5a4.5 4.5 0 010 7M11 7.5a2 2 0 010 3"
+                        stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+              </button>
+              <input class="ba-volume-slider" id="ba-vol-01"
+                     type="range" min="0" max="1" step="0.02" value="1"
+                     aria-label="볼륨" />
+              <span class="ba-player__hint">Space: play/pause &nbsp;·&nbsp; B/A: toggle mode</span>
+            </div>
+          </div>
+
+        </div><!-- /ba-player -->
+
+        <div class="pd-description" style="margin-top:2.5rem;">
+          <p>
+            대사 에디팅 전후를 비교해 들을 수 있습니다.
+            Before는 현장 원본 음원, After는 ADR 보완과 앰비언스 레이어링이 완료된 최종 믹스입니다.
           </p>
         </div>
       </div>
@@ -174,7 +260,90 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+  'use strict';
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  class BeforeAfterPlayer {
+    constructor(playerId) {
+      this.root = document.getElementById(playerId);
+      if (!this.root) return;
+      const id = playerId.replace('ba-player-', '');
+      this.video       = document.getElementById('ba-video-'       + id);
+      this.placeholder = document.getElementById('ba-placeholder-' + id);
+      this.badge       = document.getElementById('ba-badge-'       + id);
+      this.playBtn     = document.getElementById('ba-play-'        + id);
+      this.track       = document.getElementById('ba-track-'       + id);
+      this.fill        = document.getElementById('ba-fill-'        + id);
+      this.thumb       = document.getElementById('ba-thumb-'       + id);
+      this.timeEl      = document.getElementById('ba-time-'        + id);
+      this.muteBtn     = document.getElementById('ba-mute-'        + id);
+      this.volSlider   = document.getElementById('ba-vol-'         + id);
+      this.volWave     = document.getElementById('ba-vol-wave-'    + id);
+      this.toggleBtns  = this.root.querySelectorAll('.ba-toggle');
+      this.mode        = 'before';
+      this.dragging    = false;
+      this.beforeSrc   = this.video.dataset.beforeSrc || '';
+      this.afterSrc    = this.video.dataset.afterSrc  || '';
+      this._init();
+    }
+    get _playIcon()  { return '<svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M3 2l9 5-9 5V2z"/></svg>'; }
+    get _pauseIcon() { return '<svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><rect x="2" y="2" width="4" height="10" rx="1"/><rect x="8" y="2" width="4" height="10" rx="1"/></svg>'; }
+    _init() {
+      this._loadSource(this.beforeSrc);
+      this.toggleBtns.forEach(btn => btn.addEventListener('click', () => this.switchMode(btn.dataset.mode)));
+      this.playBtn.addEventListener('click', () => this.togglePlay());
+      this.video.addEventListener('timeupdate',     () => this._onTimeUpdate());
+      this.video.addEventListener('loadedmetadata', () => this._onMetaLoaded());
+      this.video.addEventListener('ended',          () => this._onEnded());
+      this.video.addEventListener('play',  () => { this.playBtn.innerHTML = this._pauseIcon; this.playBtn.setAttribute('aria-label', '일시정지'); });
+      this.video.addEventListener('pause', () => { this.playBtn.innerHTML = this._playIcon;  this.playBtn.setAttribute('aria-label', '재생'); });
+      this.track.addEventListener('mousedown',  e => this._onProgressDown(e));
+      this.track.addEventListener('touchstart', e => this._onProgressDown(e), { passive: true });
+      document.addEventListener('mousemove', e => this._onProgressMove(e));
+      document.addEventListener('touchmove', e => this._onProgressMove(e), { passive: true });
+      document.addEventListener('mouseup',  () => this._onProgressUp());
+      document.addEventListener('touchend', () => this._onProgressUp());
+      this.volSlider.addEventListener('input', () => { this.video.volume = parseFloat(this.volSlider.value); this._updateMuteIcon(); });
+      this.muteBtn.addEventListener('click', () => this._toggleMute());
+      this.root.setAttribute('tabindex', '0');
+      this.root.addEventListener('keydown', e => this._onKey(e));
+    }
+    _loadSource(src) {
+      this.placeholder.classList.toggle('hidden', !!src);
+      if (src) { this.video.src = src; this.video.load(); }
+      else { this.video.removeAttribute('src'); this._setTimeDisplay(0, 0); this._setProgress(0); }
+    }
+    switchMode(newMode) {
+      if (newMode === this.mode) return;
+      const savedTime  = this.video.currentTime || 0;
+      const wasPlaying = !this.video.paused && this.video.src;
+      const newSrc     = newMode === 'before' ? this.beforeSrc : this.afterSrc;
+      this.mode = newMode;
+      this.badge.textContent  = newMode.toUpperCase();
+      this.badge.dataset.mode = newMode;
+      this.toggleBtns.forEach(btn => { const a = btn.dataset.mode === newMode; btn.classList.toggle('active', a); btn.setAttribute('aria-pressed', String(a)); });
+      if (!newSrc) { this._loadSource(''); return; }
+      this.video.src = newSrc; this.video.load();
+      const resume = () => { this.video.currentTime = Math.min(savedTime, this.video.duration || 0); if (wasPlaying) this.video.play().catch(() => {}); this.video.removeEventListener('canplay', resume); };
+      this.video.addEventListener('canplay', resume);
+    }
+    togglePlay() { if (!this.video.src) return; this.video.paused ? this.video.play().catch(() => {}) : this.video.pause(); }
+    _calcPercent(e) { const rect = this.track.getBoundingClientRect(); const x = e.touches ? e.touches[0].clientX : e.clientX; return Math.max(0, Math.min(1, (x - rect.left) / rect.width)); }
+    _onProgressDown(e) { if (!this.video.src) return; this.dragging = true; this._setProgress(this._calcPercent(e) * 100); }
+    _onProgressMove(e) { if (!this.dragging) return; this._setProgress(this._calcPercent(e) * 100); }
+    _onProgressUp() { if (!this.dragging) return; this.dragging = false; if (this.video.duration) { this.video.currentTime = (parseFloat(this.fill.style.width) / 100) * this.video.duration; } }
+    _setProgress(pct) { this.fill.style.width = pct + '%'; this.thumb.style.left = pct + '%'; this.track.setAttribute('aria-valuenow', Math.round(pct)); }
+    _onTimeUpdate() { if (this.dragging) return; const dur = this.video.duration || 0; const cur = this.video.currentTime; this._setProgress(dur ? (cur / dur) * 100 : 0); this._setTimeDisplay(cur, dur); }
+    _onMetaLoaded() { this._setTimeDisplay(0, this.video.duration); }
+    _onEnded() { this._setProgress(0); this.video.currentTime = 0; }
+    _setTimeDisplay(cur, dur) { this.timeEl.textContent = this._fmt(cur) + ' / ' + this._fmt(dur); }
+    _fmt(s) { if (!s || isNaN(s)) return '0:00'; const m = Math.floor(s / 60); return m + ':' + String(Math.floor(s % 60)).padStart(2, '0'); }
+    _toggleMute() { this.video.muted = !this.video.muted; if (this.video.muted) { this.volSlider.value = 0; } else { this.video.volume = parseFloat(this.volSlider.value) || 1; if (this.volSlider.value === '0') this.volSlider.value = 1; } this._updateMuteIcon(); }
+    _updateMuteIcon() { const muted = this.video.muted || parseFloat(this.volSlider.value) === 0; if (this.volWave) this.volWave.style.opacity = muted ? '0.2' : '1'; this.muteBtn.setAttribute('aria-label', muted ? '음소거 해제' : '음소거'); }
+    _onKey(e) { switch(e.key) { case ' ': case 'k': e.preventDefault(); this.togglePlay(); break; case 'b': case 'B': this.switchMode('before'); break; case 'a': case 'A': this.switchMode('after'); break; case 'ArrowRight': if (this.video.src) this.video.currentTime = Math.min(this.video.duration, this.video.currentTime + 5); break; case 'ArrowLeft': if (this.video.src) this.video.currentTime = Math.max(0, this.video.currentTime - 5); break; } }
+  }
+
+  new BeforeAfterPlayer('ba-player-01');
   </script>
 
 </body>
