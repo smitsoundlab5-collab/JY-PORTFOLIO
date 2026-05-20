@@ -582,6 +582,10 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
   background: var(--bg-3);
 }
 
+.project-card__media:has(.project-card__video[poster]) .project-card__fallback {
+  display: none;
+}
+
 .project-card__overlay {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
