@@ -46,13 +46,77 @@
         <div class="work__filters" role="group" aria-label="카테고리 필터">
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="post">Audio Post Production</button>
-          <button class="filter-btn" data-filter="production">Production Sound</button>
           <button class="filter-btn" data-filter="sound-redesign">Sound Redesign</button>
+          <button class="filter-btn" data-filter="production">Production Sound</button>
         </div>
 
         <div class="work__grid">
 
-          <!-- Card 01 -->
+          <!-- ── Audio Post Production ── -->
+          <a href="projects/project-03.html"
+             class="project-card-link"
+             data-category="post"
+             aria-label="Lipbalm 프로젝트 상세 보기">
+            <article class="project-card">
+              <figure class="project-card__media">
+                <video class="project-card__video" muted loop playsinline preload="none"
+                       poster="videos/lipbalm_card_thumb.jpg">
+                </video>
+                <div class="project-card__fallback" aria-hidden="true">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M10 20l8-8 4 4 8-8" stroke="#c8ff00" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="20" cy="20" r="18" stroke="#333" stroke-width="1"/>
+                  </svg>
+                </div>
+                <div class="project-card__overlay" aria-hidden="true">
+                  <span class="project-card__view-label">View Project
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="project-card__info">
+                <div class="project-card__meta">
+                  <span class="project-card__category">Audio Post Production</span>
+                  <span class="project-card__year">2025</span>
+                </div>
+                <h3 class="project-card__title">Lipbalm</h3>
+                <p class="project-card__role">Dialogue Editor · Mixing</p>
+                <p class="project-card__desc">도시의 밑바닥에서 살아가는 청춘들의 이야기. 대사 에디팅과 ADR, 앰비언스 레이어링으로 날 것의 현실감을 구현했습니다.</p>
+              </div>
+            </article>
+          </a>
+
+          <a href="#"
+             class="project-card-link"
+             data-category="post"
+             aria-label="프로젝트 추가 예정">
+            <article class="project-card">
+              <figure class="project-card__media">
+                <div class="project-card__fallback" aria-hidden="true">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M10 20l8-8 4 4 8-8" stroke="#c8ff00" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="20" cy="20" r="18" stroke="#333" stroke-width="1"/>
+                  </svg>
+                </div>
+              </figure>
+              <div class="project-card__info">
+                <div class="project-card__meta">
+                  <span class="project-card__category">Audio Post Production</span>
+                  <span class="project-card__year">—</span>
+                </div>
+                <h3 class="project-card__title">프로젝트명</h3>
+                <p class="project-card__role">역할 / 포지션</p>
+                <p class="project-card__desc">프로젝트 설명을 입력하세요.</p>
+              </div>
+            </article>
+          </a>
+
+          <!-- ── Sound Redesign ── -->
           <a href="projects/project-01.html"
              class="project-card-link"
              data-category="sound-redesign"
@@ -91,83 +155,6 @@
             </article>
           </a>
 
-          <!-- Card 02 -->
-          <a href="projects/project-02.html"
-             class="project-card-link"
-             data-category="production"
-             aria-label="나는 꼭두입니다 프로젝트 상세 보기">
-            <article class="project-card">
-              <figure class="project-card__media">
-                <video class="project-card__video" muted loop playsinline preload="none"
-                       poster="videos/나는꼭두입니다_thumb1.png">
-                </video>
-                <div class="project-card__fallback" aria-hidden="true">
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <path d="M10 20l8-8 4 4 8-8" stroke="#c8ff00" stroke-width="1.5"
-                          stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="20" cy="20" r="18" stroke="#333" stroke-width="1"/>
-                  </svg>
-                </div>
-                <div class="project-card__overlay" aria-hidden="true">
-                  <span class="project-card__view-label">View Project
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor"
-                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </div>
-              </figure>
-              <div class="project-card__info">
-                <div class="project-card__meta">
-                  <span class="project-card__category">Production Sound</span>
-                  <span class="project-card__year">2025</span>
-                </div>
-                <h3 class="project-card__title">나는 꼭두입니다</h3>
-                <p class="project-card__role">Boom Operator</p>
-                <p class="project-card__desc">슬프되 따뜻하게, 정적이되 묵직하게. XR 스튜디오 환경의 다큐멘터리 현장 녹음. Two Boom 시스템과 Tentacle Sync로 복잡한 녹음 환경을 제어했습니다.</p>
-              </div>
-            </article>
-          </a>
-
-          <!-- Card 03 -->
-          <a href="projects/project-03.html"
-             class="project-card-link"
-             data-category="post"
-             aria-label="Lipbalm 프로젝트 상세 보기">
-            <article class="project-card">
-              <figure class="project-card__media">
-                <video class="project-card__video" muted loop playsinline preload="none"
-                       poster="videos/lipbalm_card_thumb.jpg">
-                </video>
-                <div class="project-card__fallback" aria-hidden="true">
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <path d="M10 20l8-8 4 4 8-8" stroke="#c8ff00" stroke-width="1.5"
-                          stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="20" cy="20" r="18" stroke="#333" stroke-width="1"/>
-                  </svg>
-                </div>
-                <div class="project-card__overlay" aria-hidden="true">
-                  <span class="project-card__view-label">View Project
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor"
-                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </div>
-              </figure>
-              <div class="project-card__info">
-                <div class="project-card__meta">
-                  <span class="project-card__category">Audio Post Production</span>
-                  <span class="project-card__year">2025</span>
-                </div>
-                <h3 class="project-card__title">Lipbalm</h3>
-                <p class="project-card__role">Dialogue Editor · Mixing</p>
-                <p class="project-card__desc">도시의 밑바닥에서 살아가는 청춘들의 이야기. 대사 에디팅과 ADR, 앰비언스 레이어링으로 날 것의 현실감을 구현했습니다.</p>
-              </div>
-            </article>
-          </a>
-
-          <!-- Card: HOME -->
           <a href="projects/project-home.html"
              class="project-card-link"
              data-category="sound-redesign"
@@ -206,12 +193,16 @@
             </article>
           </a>
 
-          <a href="#"
+          <!-- ── Production Sound ── -->
+          <a href="projects/project-02.html"
              class="project-card-link"
-             data-category="post"
-             aria-label="프로젝트 추가 예정">
+             data-category="production"
+             aria-label="나는 꼭두입니다 프로젝트 상세 보기">
             <article class="project-card">
               <figure class="project-card__media">
+                <video class="project-card__video" muted loop playsinline preload="none"
+                       poster="videos/나는꼭두입니다_thumb1.png">
+                </video>
                 <div class="project-card__fallback" aria-hidden="true">
                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
                     <path d="M10 20l8-8 4 4 8-8" stroke="#c8ff00" stroke-width="1.5"
@@ -219,15 +210,23 @@
                     <circle cx="20" cy="20" r="18" stroke="#333" stroke-width="1"/>
                   </svg>
                 </div>
+                <div class="project-card__overlay" aria-hidden="true">
+                  <span class="project-card__view-label">View Project
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </div>
               </figure>
               <div class="project-card__info">
                 <div class="project-card__meta">
-                  <span class="project-card__category">Post-production</span>
-                  <span class="project-card__year">—</span>
+                  <span class="project-card__category">Production Sound</span>
+                  <span class="project-card__year">2025</span>
                 </div>
-                <h3 class="project-card__title">프로젝트명</h3>
-                <p class="project-card__role">역할 / 포지션</p>
-                <p class="project-card__desc">프로젝트 설명을 입력하세요.</p>
+                <h3 class="project-card__title">나는 꼭두입니다</h3>
+                <p class="project-card__role">Boom Operator</p>
+                <p class="project-card__desc">슬프되 따뜻하게, 정적이되 묵직하게. XR 스튜디오 환경의 다큐멘터리 현장 녹음. Two Boom 시스템과 Tentacle Sync로 복잡한 녹음 환경을 제어했습니다.</p>
               </div>
             </article>
           </a>
@@ -248,7 +247,7 @@
               </figure>
               <div class="project-card__info">
                 <div class="project-card__meta">
-                  <span class="project-card__category">Production</span>
+                  <span class="project-card__category">Production Sound</span>
                   <span class="project-card__year">—</span>
                 </div>
                 <h3 class="project-card__title">프로젝트명</h3>
