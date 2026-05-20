@@ -1047,6 +1047,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 .pd-description p {
   font-size: clamp(1rem, 1.5vw, 1.1rem);
   font-weight: 300; line-height: 1.9; color: var(--text);
+  word-break: keep-all; overflow-wrap: break-word;
 }
 
 .pd-description p + p { margin-top: 1.25rem; }
@@ -1096,6 +1097,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 
 .pd-workflow__caption p {
   font-size: 0.9rem; color: var(--text-sub); line-height: 1.8;
+  word-break: keep-all; overflow-wrap: break-word;
 }
 
 /* ── Detail: Bottom nav ───────────────── */
