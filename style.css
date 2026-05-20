@@ -71,15 +71,15 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 .section-header .section-label { margin-bottom: 0; }
 
 .more-btn {
-  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--text-sub);
-  border: 1px solid var(--border); border-radius: 2px;
-  padding: 0.35rem 0.85rem;
-  transition: border-color 0.25s, color 0.25s;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent); border-radius: 2px;
+  padding: 0.4rem 1rem;
+  transition: background 0.2s, color 0.2s;
   white-space: nowrap;
 }
 
-.more-btn:hover { border-color: var(--accent); color: var(--accent); }
+.more-btn:hover { background: var(--accent); color: var(--bg); }
 
 /* ─────────────────────────────────────────
    REVEAL ANIMATION
