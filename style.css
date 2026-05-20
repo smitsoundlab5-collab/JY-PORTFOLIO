@@ -381,7 +381,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
    ABOUT
 ───────────────────────────────────────── */
 .about__grid {
-  display: grid; grid-template-columns: 1fr 1fr;
+  display: grid; grid-template-columns: 1.8fr 1fr;
   gap: var(--gap); align-items: start;
 }
 
