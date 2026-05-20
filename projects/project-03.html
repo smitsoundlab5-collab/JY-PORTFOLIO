@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Still Water — Audio Post Production | SEO JEONGYEON" />
-  <title>Still Water — SEO JEONGYEON</title>
+  <meta name="description" content="Lipbalm — Audio Post Production | SEO JEONGYEON" />
+  <title>Lipbalm — SEO JEONGYEON</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -22,7 +22,7 @@
         </svg>
         All Projects
       </a>
-      <span class="pd-topbar__label">Still Water</span>
+      <span class="pd-topbar__label">Lipbalm</span>
       <span aria-hidden="true"></span>
     </div>
   </header>
@@ -32,29 +32,25 @@
     <!-- ── HERO ───────────────────────── -->
     <section class="pd-hero">
       <div class="pd-hero__media">
-        <!-- <video class="pd-hero__video" autoplay muted loop playsinline src="../videos/still-water.mp4"></video> -->
-        <div class="pd-hero__media-placeholder">
-          <div class="pd-hero__waveform" aria-hidden="true">
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span>
-          </div>
-        </div>
+        <video class="pd-hero__video" controls playsinline
+               src="../videos/lipbalm.mp4"
+               poster="../videos/lipbalm_thumb.jpg"
+               style="cursor:pointer;"></video>
       </div>
 
       <div class="pd-hero__info">
         <div class="pd-hero__inner">
           <div>
             <p class="pd-hero__category">Audio Post Production</p>
-            <h1 class="pd-hero__title">Still Water</h1>
+            <h1 class="pd-hero__title">Lipbalm</h1>
             <div class="pd-hero__meta">
               <div class="pd-hero__meta-item">
                 <span class="pd-hero__meta-label">Year</span>
-                <span class="pd-hero__meta-value">2023</span>
+                <span class="pd-hero__meta-value">2025</span>
               </div>
               <div class="pd-hero__meta-item">
                 <span class="pd-hero__meta-label">Role</span>
-                <span class="pd-hero__meta-value">Sound Design · Dialogue Editing · Mixing</span>
+                <span class="pd-hero__meta-value">Dialogue Editor · Mixing</span>
               </div>
             </div>
           </div>
@@ -62,145 +58,88 @@
             <p class="pd-hero__meta-label" style="margin-bottom:0.6rem;">Tools</p>
             <div class="pd-hero__tools">
               <span class="pd-tool-tag">Pro Tools</span>
-              <span class="pd-tool-tag">iZotope RX</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── BEFORE / AFTER PLAYER ──────── -->
+    <!-- ── OVERVIEW ──────────────────── -->
     <section class="pd-section">
       <div class="pd-section__container">
-        <p class="pd-section__label">Before / After</p>
-
-        <div class="ba-player" id="ba-player-01" role="region" aria-label="Before/After 사운드 비교 플레이어">
-          <div class="ba-player__toggle-row">
-            <button class="ba-toggle active" data-mode="before" aria-pressed="true">
-              <span class="ba-toggle__dot"></span>
-              Before
-              <span class="ba-toggle__sub">Guide / No SFX</span>
-            </button>
-            <button class="ba-toggle" data-mode="after" aria-pressed="false">
-              <span class="ba-toggle__dot"></span>
-              After
-              <span class="ba-toggle__sub">Final Mix</span>
-            </button>
-          </div>
-
-          <div class="ba-player__screen">
-            <video
-              class="ba-player__video"
-              id="ba-video-01"
-              playsinline
-              data-before-src=""
-              data-after-src=""
-            ></video>
-
-            <div class="ba-player__placeholder" id="ba-placeholder-01">
-              <div class="ba-player__placeholder-waveform" aria-hidden="true">
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-              </div>
-              <p>Add video source to enable playback</p>
-            </div>
-
-            <div class="ba-player__badge" data-mode="before" id="ba-badge-01"
-                 aria-live="polite" aria-atomic="true">BEFORE</div>
-          </div>
-
-          <div class="ba-player__controls">
-            <div class="ba-player__progress-row">
-              <button class="ba-play-btn" id="ba-play-01" aria-label="재생">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
-                  <path d="M3 2l9 5-9 5V2z"/>
-                </svg>
-              </button>
-              <div class="ba-progress-track" id="ba-track-01" role="slider"
-                   aria-label="재생 위치" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                <div class="ba-progress-fill" id="ba-fill-01"></div>
-                <div class="ba-progress-thumb" id="ba-thumb-01"></div>
-              </div>
-              <span class="ba-time" id="ba-time-01">0:00 / 0:00</span>
-            </div>
-            <div class="ba-player__volume-row">
-              <button class="ba-mute-btn" id="ba-mute-01" aria-label="음소거">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path d="M2 6.5h3l4-3.5v12L5 11.5H2v-5z" stroke="currentColor" stroke-width="1.2"
-                        stroke-linejoin="round"/>
-                  <path id="ba-vol-wave-01" d="M13 5.5a4.5 4.5 0 010 7M11 7.5a2 2 0 010 3"
-                        stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-                </svg>
-              </button>
-              <input class="ba-volume-slider" id="ba-vol-01"
-                     type="range" min="0" max="1" step="0.02" value="1"
-                     aria-label="볼륨" />
-              <span class="ba-player__hint">Space: play/pause &nbsp;·&nbsp; B/A: toggle mode</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="pd-description" style="margin-top:2.5rem;">
+        <p class="pd-section__label">Overview</p>
+        <div class="pd-description">
           <p>
-            Luxury skincare brand campaign. Crafted a minimal, ASMR-adjacent sound palette —
-            water, glass, and silence as primary instruments.
-          </p>
-          <p>
-            Toggle <em>Before</em> and <em>After</em> above to hear how the same scene transforms
-            from a silent edit to a fully designed soundscape.
+            도시의 밑바닥에서 살아가는 청춘들이 선택과 폭력, 생존 사이에서 무너져가는 모습을 통해
+            관계의 의미와 인간의 본성을 보여주는 작품입니다.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- ── WORKFLOW ────────────────────── -->
+    <!-- ── APPROACH ──────────────────── -->
     <section class="pd-section">
       <div class="pd-section__container">
-        <p class="pd-section__label">Workflow</p>
-
-        <div class="pd-workflow__grid">
-          <div class="pd-workflow__img">
-            <div class="pd-workflow__img-placeholder">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                <rect x="2" y="8" width="28" height="18" rx="1" stroke="#333" stroke-width="1.2"/>
-                <path d="M6 18l4-4 3 3 4-6 4 4 3-2" stroke="#c8ff00" stroke-width="1.2"
-                      stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span>DAW Session</span>
-            </div>
-          </div>
-          <div class="pd-workflow__img">
-            <div class="pd-workflow__img-placeholder">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                <circle cx="16" cy="11" r="5" stroke="#333" stroke-width="1.2"/>
-                <path d="M10 11v2a6 6 0 0012 0v-2M16 23v4M12 27h8" stroke="#333"
-                      stroke-width="1.2" stroke-linecap="round"/>
-              </svg>
-              <span>Recording</span>
-            </div>
-          </div>
-          <div class="pd-workflow__img">
-            <div class="pd-workflow__img-placeholder">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                <rect x="4" y="4" width="3" height="20" rx="1" stroke="#333" stroke-width="1.2"/>
-                <rect x="10" y="9" width="3" height="15" rx="1" stroke="#333" stroke-width="1.2"/>
-                <rect x="16" y="6" width="3" height="18" rx="1" stroke="#c8ff00" stroke-width="1.2"/>
-                <rect x="22" y="11" width="3" height="13" rx="1" stroke="#333" stroke-width="1.2"/>
-                <path d="M4 28h24" stroke="#333" stroke-width="1"/>
-              </svg>
-              <span>Final Mix</span>
-            </div>
-          </div>
-        </div>
-
+        <p class="pd-section__label">Approach</p>
         <div class="pd-workflow__caption">
-          <h3>Approach & Intent</h3>
+          <h3>인물의 내러티브를 중심으로 한 대사 편집</h3>
           <p>
-            The brief called for restraint — a soundscape that feels like an exhale.
-            Water poured over glass, the resonance of an empty vessel, deliberate silences
-            between product moments. Dialogue editing focused on removing noise while preserving
-            the natural breath and texture of the talent's voice.
+            대사 에디팅 단계에서는 인물의 감정 전달력과 자연스러운 호흡을 우선적으로 정리하며
+            장면의 흐름을 안정적으로 구축하는 데 집중했습니다. 이후 폴리와 앰비언스를 통해
+            공간의 현실감과 생활감을 세밀하게 설계하며, 화면 안 인물들이 실제 도시 안에
+            존재하는 듯한 질감을 만드는 데 집중했습니다.
+          </p>
+          <p>
+            현장에서 충분히 확보되지 못한 소스와 전달력이 약한 대사 구간은 ADR 작업을 통해
+            보완하며 전체적인 대사 완성도를 높였습니다. 특히 도시 속 위태로운 청춘들의 불안한
+            정서를 효과적으로 표현하기 위해, 앰뷸런스 사이렌과 같은 포인트 앰비언스를 적극
+            활용하여 장면 전반에 긴장감과 불안정한 분위기를 형성하고자 했습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CHALLENGES ────────────────── -->
+    <section class="pd-section">
+      <div class="pd-section__container">
+        <p class="pd-section__label">Challenges</p>
+        <div class="pd-workflow__caption">
+          <h3>ADR 싱크 및 액션 사운드 디자인</h3>
+          <p>
+            ADR 진행 과정에서 배우들의 호흡과 감정 톤이 현장 촬영 당시보다 전체적으로 차분하게
+            녹음되어, 기존 현장 음원과 자연스럽게 연결시키는 과정이 가장 큰 과제였습니다.
+            단순히 대사의 음량이나 톤을 맞추는 것을 넘어, 장면 안에서 감정선이 끊기지 않도록
+            호흡의 속도와 에너지감을 세밀하게 조정해야 했습니다.
+          </p>
+          <p>
+            폭행 장면에서는 배우 간 액션의 타이밍과 실제 타격 동작의 합이 완전히 일치하지 않는
+            부분이 존재해 이펙트 사운드의 싱크를 맞추는 데 어려움이 있었습니다. 특히 액션
+            시퀀스 사운드 디자인을 본격적으로 다뤄본 첫 작업이었던 만큼, 타격감과 현실감 사이의
+            균형을 조절하는 과정에서 미숙한 부분도 있었습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LEARNINGS ─────────────────── -->
+    <section class="pd-section">
+      <div class="pd-section__container">
+        <p class="pd-section__label">Learnings</p>
+        <div class="pd-workflow__caption">
+          <h3>ADR과 액션 사운드에서 배운 것</h3>
+          <p>
+            이번 작업을 통해 ADR은 단순히 부족한 대사를 대체하는 과정이 아니라, 현장의 감정과
+            호흡을 얼마나 자연스럽게 재현하느냐가 핵심이라는 점을 깊게 체감했습니다. 특히 동일한
+            배우의 목소리라도 녹음 환경과 연기 톤에 따라 장면의 몰입감이 크게 달라질 수 있다는
+            점을 경험하며, 대사 편집에서 감정선과 호흡의 연결감을 세밀하게 다루는 능력의
+            중요성을 배웠습니다.
+          </p>
+          <p>
+            액션 시퀀스 작업에서는 화면에 정확히 맞는 소리를 배치하는 것만으로는 충분하지 않으며,
+            타격의 리듬감과 장면의 긴장감을 어떻게 설계하느냐에 따라 체감되는 현실감이 크게
+            달라진다는 점을 이해하게 되었습니다. 첫 액션 사운드 디자인 작업이었던 만큼
+            시행착오도 있었지만, 프레임 단위의 싱크 조절과 레이어링의 중요성을 실질적으로
+            익힐 수 있었습니다.
           </p>
         </div>
       </div>
@@ -235,90 +174,7 @@
   </footer>
 
   <script>
-  'use strict';
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  class BeforeAfterPlayer {
-    constructor(playerId) {
-      this.root = document.getElementById(playerId);
-      if (!this.root) return;
-      const id = playerId.replace('ba-player-', '');
-      this.video       = document.getElementById('ba-video-'       + id);
-      this.placeholder = document.getElementById('ba-placeholder-' + id);
-      this.badge       = document.getElementById('ba-badge-'       + id);
-      this.playBtn     = document.getElementById('ba-play-'        + id);
-      this.track       = document.getElementById('ba-track-'       + id);
-      this.fill        = document.getElementById('ba-fill-'        + id);
-      this.thumb       = document.getElementById('ba-thumb-'       + id);
-      this.timeEl      = document.getElementById('ba-time-'        + id);
-      this.muteBtn     = document.getElementById('ba-mute-'        + id);
-      this.volSlider   = document.getElementById('ba-vol-'         + id);
-      this.volWave     = document.getElementById('ba-vol-wave-'    + id);
-      this.toggleBtns  = this.root.querySelectorAll('.ba-toggle');
-      this.mode        = 'before';
-      this.dragging    = false;
-      this.beforeSrc   = this.video.dataset.beforeSrc || '';
-      this.afterSrc    = this.video.dataset.afterSrc  || '';
-      this._init();
-    }
-    get _playIcon()  { return '<svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M3 2l9 5-9 5V2z"/></svg>'; }
-    get _pauseIcon() { return '<svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><rect x="2" y="2" width="4" height="10" rx="1"/><rect x="8" y="2" width="4" height="10" rx="1"/></svg>'; }
-    _init() {
-      this._loadSource(this.beforeSrc);
-      this.toggleBtns.forEach(btn => btn.addEventListener('click', () => this.switchMode(btn.dataset.mode)));
-      this.playBtn.addEventListener('click', () => this.togglePlay());
-      this.video.addEventListener('timeupdate',     () => this._onTimeUpdate());
-      this.video.addEventListener('loadedmetadata', () => this._onMetaLoaded());
-      this.video.addEventListener('ended',          () => this._onEnded());
-      this.video.addEventListener('play',  () => { this.playBtn.innerHTML = this._pauseIcon; this.playBtn.setAttribute('aria-label', '일시정지'); });
-      this.video.addEventListener('pause', () => { this.playBtn.innerHTML = this._playIcon;  this.playBtn.setAttribute('aria-label', '재생'); });
-      this.track.addEventListener('mousedown',  e => this._onProgressDown(e));
-      this.track.addEventListener('touchstart', e => this._onProgressDown(e), { passive: true });
-      document.addEventListener('mousemove', e => this._onProgressMove(e));
-      document.addEventListener('touchmove', e => this._onProgressMove(e), { passive: true });
-      document.addEventListener('mouseup',  () => this._onProgressUp());
-      document.addEventListener('touchend', () => this._onProgressUp());
-      this.volSlider.addEventListener('input', () => { this.video.volume = parseFloat(this.volSlider.value); this._updateMuteIcon(); });
-      this.muteBtn.addEventListener('click', () => this._toggleMute());
-      this.root.setAttribute('tabindex', '0');
-      this.root.addEventListener('keydown', e => this._onKey(e));
-    }
-    _loadSource(src) {
-      this.placeholder.classList.toggle('hidden', !!src);
-      if (src) { this.video.src = src; this.video.load(); }
-      else { this.video.removeAttribute('src'); this._setTimeDisplay(0, 0); this._setProgress(0); }
-    }
-    switchMode(newMode) {
-      if (newMode === this.mode) return;
-      const savedTime = this.video.currentTime || 0;
-      const wasPlaying = !this.video.paused && this.video.src;
-      const newSrc = newMode === 'before' ? this.beforeSrc : this.afterSrc;
-      this.mode = newMode;
-      this.badge.textContent = newMode.toUpperCase();
-      this.badge.dataset.mode = newMode;
-      this.toggleBtns.forEach(btn => { const a = btn.dataset.mode === newMode; btn.classList.toggle('active', a); btn.setAttribute('aria-pressed', String(a)); });
-      if (!newSrc) { this._loadSource(''); return; }
-      this.video.src = newSrc; this.video.load();
-      const resume = () => { this.video.currentTime = Math.min(savedTime, this.video.duration || 0); if (wasPlaying) this.video.play().catch(() => {}); this.video.removeEventListener('canplay', resume); };
-      this.video.addEventListener('canplay', resume);
-    }
-    togglePlay() { if (!this.video.src) return; this.video.paused ? this.video.play().catch(() => {}) : this.video.pause(); }
-    _calcPercent(e) { const rect = this.track.getBoundingClientRect(); const x = e.touches ? e.touches[0].clientX : e.clientX; return Math.max(0, Math.min(1, (x - rect.left) / rect.width)); }
-    _onProgressDown(e) { if (!this.video.src) return; this.dragging = true; this._setProgress(this._calcPercent(e) * 100); }
-    _onProgressMove(e) { if (!this.dragging) return; this._setProgress(this._calcPercent(e) * 100); }
-    _onProgressUp() { if (!this.dragging) return; this.dragging = false; if (this.video.duration) { this.video.currentTime = (parseFloat(this.fill.style.width) / 100) * this.video.duration; } }
-    _setProgress(pct) { this.fill.style.width = pct + '%'; this.thumb.style.left = pct + '%'; this.track.setAttribute('aria-valuenow', Math.round(pct)); }
-    _onTimeUpdate() { if (this.dragging) return; const dur = this.video.duration || 0; const cur = this.video.currentTime; this._setProgress(dur ? (cur / dur) * 100 : 0); this._setTimeDisplay(cur, dur); }
-    _onMetaLoaded() { this._setTimeDisplay(0, this.video.duration); }
-    _onEnded() { this._setProgress(0); this.video.currentTime = 0; }
-    _setTimeDisplay(cur, dur) { this.timeEl.textContent = this._fmt(cur) + ' / ' + this._fmt(dur); }
-    _fmt(s) { if (!s || isNaN(s)) return '0:00'; const m = Math.floor(s / 60); return m + ':' + String(Math.floor(s % 60)).padStart(2, '0'); }
-    _toggleMute() { this.video.muted = !this.video.muted; if (this.video.muted) { this.volSlider.value = 0; } else { this.video.volume = parseFloat(this.volSlider.value) || 1; if (this.volSlider.value === '0') this.volSlider.value = 1; } this._updateMuteIcon(); }
-    _updateMuteIcon() { const muted = this.video.muted || parseFloat(this.volSlider.value) === 0; if (this.volWave) this.volWave.style.opacity = muted ? '0.2' : '1'; this.muteBtn.setAttribute('aria-label', muted ? '음소거 해제' : '음소거'); }
-    _onKey(e) { switch(e.key) { case ' ': case 'k': e.preventDefault(); this.togglePlay(); break; case 'b': case 'B': this.switchMode('before'); break; case 'a': case 'A': this.switchMode('after'); break; case 'ArrowRight': if (this.video.src) this.video.currentTime = Math.min(this.video.duration, this.video.currentTime + 5); break; case 'ArrowLeft': if (this.video.src) this.video.currentTime = Math.max(0, this.video.currentTime - 5); break; } }
-  }
-
-  new BeforeAfterPlayer('ba-player-01');
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
 </body>
