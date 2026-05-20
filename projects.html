@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SEO JEONGYEON — 전체 프로젝트" />
+  <title>All Projects — SEO JEONGYEON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── TOP BAR ────────────────────────────────────── -->
+  <header class="pd-topbar">
+    <div class="pd-topbar__inner">
+      <a href="index.html" class="pd-back-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Home
+      </a>
+      <span class="pd-topbar__label">All Projects</span>
+      <span aria-hidden="true"></span>
+    </div>
+  </header>
+
+  <main style="padding-top: var(--nav-h)">
+
+    <!-- ── HERO ─────────────────────────────────────── -->
+    <section class="cr-hero">
+      <div class="container">
+        <p class="cr-hero__eyebrow">SEO JEONGYEON</p>
+        <h1 class="cr-hero__title">All Projects<span class="accent">.</span></h1>
+        <p class="cr-hero__sub">전체 참여 프로젝트</p>
+      </div>
+    </section>
+
+    <!-- ── PROJECT LIST ──────────────────────────────── -->
+    <section class="cr-section">
+      <div class="container">
+
+        <!-- Category Filter -->
+        <div class="work__filters" role="group" aria-label="카테고리 필터">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="post">Post-production</button>
+          <button class="filter-btn" data-filter="production">Production</button>
+          <button class="filter-btn" data-filter="cinematic">Cinematic</button>
+        </div>
+
+        <div class="work__grid">
+
+          <!-- Card 01 -->
+          <a href="projects/project-01.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="project-card-link"
+             data-category="cinematic"
+             aria-label="Echo Chamber 프로젝트 상세 보기">
+            <article class="project-card">
+              <figure class="project-card__media">
+                <video class="project-card__video" muted loop playsinline preload="none">
+                  <!-- <source src="videos/echo-chamber.mp4" type="video/mp4"> -->
+                </video>
+                <div class="project-card__fallback" aria-hidden="true">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M10 20l8-8 4 4 8-8" stroke="#c8ff00" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="20" cy="20" r="18" stroke="#333" stroke-width="1"/>
+                  </svg>
+                </div>
+                <div class="project-card__overlay" aria-hidden="true">
+                  <span class="project-card__view-label">View Project
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="project-card__info">
+                <div class="project-card__meta">
+                  <span class="project-card__category">Film</span>
+                  <span class="project-card__year">2024</span>
+                </div>
+                <h3 class="project-card__title">Echo Chamber</h3>
+                <p class="project-card__role">Sound Design · Mixing</p>
+                <p class="project-card__desc">Psychological thriller short film. Designed an oppressive,
+                  interior soundscape using convolution reverbs and granular synthesis.</p>
+              </div>
+            </article>
+          </a>
+
+          <!-- Card 02 -->
+          <a href="projects/project-02.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="project-card-link"
+             data-category="production"
+             aria-label="Neon Drift 프로젝트 상세 보기">
+            <article class="project-card">
+              <figure class="project-card__media">
+                <video class="project-card__video" muted loop playsinline preload="none">
+                  <!-- <source src="videos/neon-drift.mp4" type="video/mp4"> -->
+                </video>
+                <div class="project-card__fallback" aria-hidden="true">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M10 20l8-8 4 4 8-8" stroke="#c8ff00" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="20" cy="20" r="18" stroke="#333" stroke-width="1"/>
+                  </svg>
+                </div>
+                <div class="project-card__overlay" aria-hidden="true">
+                  <span class="project-card__view-label">View Project
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="project-card__info">
+                <div class="project-card__meta">
+                  <span class="project-card__category">Game</span>
+                  <span class="project-card__year">2024</span>
+                </div>
+                <h3 class="project-card__title">Neon Drift</h3>
+                <p class="project-card__role">Sound Design · Wwise Integration</p>
+                <p class="project-card__desc">Indie racing game. Built a reactive audio system where
+                  engine sounds, environment, and music blend dynamically with player speed.</p>
+              </div>
+            </article>
+          </a>
+
+          <!-- Card 03 -->
+          <a href="projects/project-01.html"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="project-card-link"
+             data-category="post"
+             aria-label="Still Water 프로젝트 상세 보기">
+            <article class="project-card">
+              <figure class="project-card__media">
+                <video class="project-card__video" muted loop playsinline preload="none">
+                  <!-- <source src="videos/still-water.mp4" type="video/mp4"> -->
+                </video>
+                <div class="project-card__fallback" aria-hidden="true">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M10 20l8-8 4 4 8-8" stroke="#c8ff00" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="20" cy="20" r="18" stroke="#333" stroke-width="1"/>
+                  </svg>
+                </div>
+                <div class="project-card__overlay" aria-hidden="true">
+                  <span class="project-card__view-label">View Project
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </div>
+              </figure>
+              <div class="project-card__info">
+                <div class="project-card__meta">
+                  <span class="project-card__category">Commercial</span>
+                  <span class="project-card__year">2023</span>
+                </div>
+                <h3 class="project-card__title">Still Water</h3>
+                <p class="project-card__role">Sound Design · Dialogue Editing · Mixing</p>
+                <p class="project-card__desc">Luxury skincare brand campaign. Crafted a minimal,
+                  ASMR-adjacent sound palette — water, glass, and silence as primary instruments.</p>
+              </div>
+            </article>
+          </a>
+
+          <!-- 아래 카드들은 실제 프로젝트로 교체하세요 -->
+          <a href="#"
+             class="project-card-link"
+             data-category="cinematic"
+             aria-label="프로젝트 추가 예정">
+            <article class="project-card">
+              <figure class="project-card__media">
+                <div class="project-card__fallback" aria-hidden="true">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M10 20l8-8 4 4 8-8" stroke="#c8ff00" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="20" cy="20" r="18" stroke="#333" stroke-width="1"/>
+                  </svg>
+                </div>
+              </figure>
+              <div class="project-card__info">
+                <div class="project-card__meta">
+                  <span class="project-card__category">Cinematic</span>
+                  <span class="project-card__year">—</span>
+                </div>
+                <h3 class="project-card__title">프로젝트명</h3>
+                <p class="project-card__role">역할 / 포지션</p>
+                <p class="project-card__desc">프로젝트 설명을 입력하세요.</p>
+              </div>
+            </article>
+          </a>
+
+          <a href="#"
+             class="project-card-link"
+             data-category="post"
+             aria-label="프로젝트 추가 예정">
+            <article class="project-card">
+              <figure class="project-card__media">
+                <div class="project-card__fallback" aria-hidden="true">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M10 20l8-8 4 4 8-8" stroke="#c8ff00" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="20" cy="20" r="18" stroke="#333" stroke-width="1"/>
+                  </svg>
+                </div>
+              </figure>
+              <div class="project-card__info">
+                <div class="project-card__meta">
+                  <span class="project-card__category">Post-production</span>
+                  <span class="project-card__year">—</span>
+                </div>
+                <h3 class="project-card__title">프로젝트명</h3>
+                <p class="project-card__role">역할 / 포지션</p>
+                <p class="project-card__desc">프로젝트 설명을 입력하세요.</p>
+              </div>
+            </article>
+          </a>
+
+          <a href="#"
+             class="project-card-link"
+             data-category="production"
+             aria-label="프로젝트 추가 예정">
+            <article class="project-card">
+              <figure class="project-card__media">
+                <div class="project-card__fallback" aria-hidden="true">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M10 20l8-8 4 4 8-8" stroke="#c8ff00" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="20" cy="20" r="18" stroke="#333" stroke-width="1"/>
+                  </svg>
+                </div>
+              </figure>
+              <div class="project-card__info">
+                <div class="project-card__meta">
+                  <span class="project-card__category">Production</span>
+                  <span class="project-card__year">—</span>
+                </div>
+                <h3 class="project-card__title">프로젝트명</h3>
+                <p class="project-card__role">역할 / 포지션</p>
+                <p class="project-card__desc">프로젝트 설명을 입력하세요.</p>
+              </div>
+            </article>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> SEO JEONGYEON. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function () {
+      var filterBtns = document.querySelectorAll('.filter-btn');
+      var cards      = document.querySelectorAll('.project-card-link[data-category]');
+      if (!filterBtns.length) return;
+
+      filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var filter = btn.getAttribute('data-filter');
+          filterBtns.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          cards.forEach(function (card) {
+            var cat = card.getAttribute('data-category');
+            card.style.display = (filter === 'all' || cat === filter) ? '' : 'none';
+          });
+        });
+      });
+
+      document.querySelectorAll('.project-card-link').forEach(function (link) {
+        var video = link.querySelector('.project-card__video');
+        if (!video) return;
+        link.addEventListener('mouseenter', function () { video.play().catch(function () {}); });
+        link.addEventListener('mouseleave', function () { video.pause(); video.currentTime = 0; });
+      });
+    })();
+  </script>
+</body>
+</html>
