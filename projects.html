@@ -58,9 +58,18 @@
             <button class="filter-btn" data-filter="sound-redesign">Sound Redesign</button>
             <button class="filter-btn" data-filter="production">Production Sound</button>
           </div>
-          <div class="sort-btns" role="group" aria-label="정렬">
-            <button class="sort-btn active" data-sort="newest">최신순</button>
-            <button class="sort-btn" data-sort="oldest">오래된 순</button>
+          <div class="sort-dropdown" id="sortDropdown">
+            <button class="sort-dropdown__trigger" id="sortTrigger" aria-haspopup="listbox" aria-expanded="false">
+              <span id="sortLabel">최신순</span>
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="sort-dropdown__menu" role="listbox" aria-label="정렬 방식">
+              <li class="sort-dropdown__item active" role="option" data-sort="newest" aria-selected="true">최신순</li>
+              <li class="sort-dropdown__item" role="option" data-sort="oldest" aria-selected="false">오래된 순</li>
+            </ul>
           </div>
         </div>
 
@@ -295,8 +304,11 @@
 
     (function () {
       var filterBtns = document.querySelectorAll('.filter-btn');
-      var sortBtns   = document.querySelectorAll('.sort-btn');
       var grid       = document.querySelector('.work__grid');
+      var trigger    = document.getElementById('sortTrigger');
+      var dropdown   = document.getElementById('sortDropdown');
+      var sortLabel  = document.getElementById('sortLabel');
+      var sortItems  = document.querySelectorAll('.sort-dropdown__item');
       if (!filterBtns.length || !grid) return;
 
       var activeFilter = 'all';
@@ -304,15 +316,11 @@
 
       function applyFilterAndSort() {
         var cards = Array.from(grid.querySelectorAll('.project-card-link[data-category]'));
-
-        // Sort
         cards.sort(function (a, b) {
           var ya = parseInt(a.getAttribute('data-year') || '0', 10);
           var yb = parseInt(b.getAttribute('data-year') || '0', 10);
           return activeSort === 'newest' ? yb - ya : ya - yb;
         });
-
-        // Re-append in sorted order & apply visibility
         cards.forEach(function (card) {
           grid.appendChild(card);
           var cat = card.getAttribute('data-category');
@@ -329,13 +337,29 @@
         });
       });
 
-      sortBtns.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          activeSort = btn.getAttribute('data-sort');
-          sortBtns.forEach(function (b) { b.classList.remove('active'); });
-          btn.classList.add('active');
+      // Dropdown toggle
+      trigger.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var isOpen = dropdown.classList.toggle('open');
+        trigger.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      sortItems.forEach(function (item) {
+        item.addEventListener('click', function () {
+          activeSort = item.getAttribute('data-sort');
+          sortLabel.textContent = item.textContent;
+          sortItems.forEach(function (i) { i.classList.remove('active'); i.setAttribute('aria-selected', 'false'); });
+          item.classList.add('active');
+          item.setAttribute('aria-selected', 'true');
+          dropdown.classList.remove('open');
+          trigger.setAttribute('aria-expanded', 'false');
           applyFilterAndSort();
         });
+      });
+
+      document.addEventListener('click', function () {
+        dropdown.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
       });
 
       // Video hover
