@@ -58,6 +58,28 @@
   }
   window.addEventListener('scroll', highlightNav, { passive: true });
   highlightNav();
+
+  // Projects link: first click scrolls to #work, second click navigates to projects.html
+  const projectsLink = document.getElementById('nav-projects');
+  if (projectsLink) {
+    let clickedOnce = false;
+    let resetTimer  = null;
+    projectsLink.addEventListener('click', function (e) {
+      if (clickedOnce) {
+        window.location.href = 'projects.html';
+      } else {
+        e.preventDefault();
+        const target = document.querySelector('#work');
+        if (target) {
+          const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h') || '68', 10);
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
+        }
+        clickedOnce = true;
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(function () { clickedOnce = false; }, 3000);
+      }
+    });
+  }
 })();
 
 
