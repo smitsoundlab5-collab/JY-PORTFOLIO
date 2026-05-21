@@ -50,12 +50,18 @@
     <section class="cr-section">
       <div class="container">
 
-        <!-- Category Filter -->
-        <div class="work__filters" role="group" aria-label="카테고리 필터">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="post">Audio Post Production</button>
-          <button class="filter-btn" data-filter="sound-redesign">Sound Redesign</button>
-          <button class="filter-btn" data-filter="production">Production Sound</button>
+        <!-- Category Filter + Sort -->
+        <div class="work__controls">
+          <div class="work__filters" role="group" aria-label="카테고리 필터">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="post">Audio Post Production</button>
+            <button class="filter-btn" data-filter="sound-redesign">Sound Redesign</button>
+            <button class="filter-btn" data-filter="production">Production Sound</button>
+          </div>
+          <div class="sort-btns" role="group" aria-label="정렬">
+            <button class="sort-btn active" data-sort="newest">최신순</button>
+            <button class="sort-btn" data-sort="oldest">오래된 순</button>
+          </div>
         </div>
 
         <div class="work__grid">
@@ -64,6 +70,7 @@
           <a href="projects/project-03.html"
              class="project-card-link"
              data-category="post"
+             data-year="2025"
              aria-label="Lipbalm 프로젝트 상세 보기">
             <article class="project-card">
               <figure class="project-card__media">
@@ -101,6 +108,7 @@
           <a href="#"
              class="project-card-link"
              data-category="post"
+             data-year="0"
              aria-label="프로젝트 추가 예정">
             <article class="project-card">
               <figure class="project-card__media">
@@ -128,6 +136,7 @@
           <a href="projects/project-01.html"
              class="project-card-link"
              data-category="sound-redesign"
+             data-year="2024"
              aria-label="Echo Chamber 프로젝트 상세 보기">
             <article class="project-card">
               <figure class="project-card__media">
@@ -166,6 +175,7 @@
           <a href="projects/project-home.html"
              class="project-card-link"
              data-category="sound-redesign"
+             data-year="2024"
              aria-label="HOME 프로젝트 상세 보기">
             <article class="project-card">
               <figure class="project-card__media">
@@ -205,6 +215,7 @@
           <a href="projects/project-02.html"
              class="project-card-link"
              data-category="production"
+             data-year="2025"
              aria-label="나는 꼭두입니다 프로젝트 상세 보기">
             <article class="project-card">
               <figure class="project-card__media">
@@ -242,6 +253,7 @@
           <a href="#"
              class="project-card-link"
              data-category="production"
+             data-year="0"
              aria-label="프로젝트 추가 예정">
             <article class="project-card">
               <figure class="project-card__media">
@@ -283,22 +295,51 @@
 
     (function () {
       var filterBtns = document.querySelectorAll('.filter-btn');
-      var cards      = document.querySelectorAll('.project-card-link[data-category]');
-      if (!filterBtns.length) return;
+      var sortBtns   = document.querySelectorAll('.sort-btn');
+      var grid       = document.querySelector('.work__grid');
+      if (!filterBtns.length || !grid) return;
+
+      var activeFilter = 'all';
+      var activeSort   = 'newest';
+
+      function applyFilterAndSort() {
+        var cards = Array.from(grid.querySelectorAll('.project-card-link[data-category]'));
+
+        // Sort
+        cards.sort(function (a, b) {
+          var ya = parseInt(a.getAttribute('data-year') || '0', 10);
+          var yb = parseInt(b.getAttribute('data-year') || '0', 10);
+          return activeSort === 'newest' ? yb - ya : ya - yb;
+        });
+
+        // Re-append in sorted order & apply visibility
+        cards.forEach(function (card) {
+          grid.appendChild(card);
+          var cat = card.getAttribute('data-category');
+          card.style.display = (activeFilter === 'all' || cat === activeFilter) ? '' : 'none';
+        });
+      }
 
       filterBtns.forEach(function (btn) {
         btn.addEventListener('click', function () {
-          var filter = btn.getAttribute('data-filter');
+          activeFilter = btn.getAttribute('data-filter');
           filterBtns.forEach(function (b) { b.classList.remove('active'); });
           btn.classList.add('active');
-          cards.forEach(function (card) {
-            var cat = card.getAttribute('data-category');
-            card.style.display = (filter === 'all' || cat === filter) ? '' : 'none';
-          });
+          applyFilterAndSort();
         });
       });
 
-      document.querySelectorAll('.project-card-link').forEach(function (link) {
+      sortBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          activeSort = btn.getAttribute('data-sort');
+          sortBtns.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          applyFilterAndSort();
+        });
+      });
+
+      // Video hover
+      grid.querySelectorAll('.project-card-link').forEach(function (link) {
         var video = link.querySelector('.project-card__video');
         if (!video) return;
         link.addEventListener('mouseenter', function () { video.play().catch(function () {}); });
